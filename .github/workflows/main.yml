@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - 'releases/*'
+      - 'marc/gradle-enterprise'
   pull_request:
     branches:
       - '*'
