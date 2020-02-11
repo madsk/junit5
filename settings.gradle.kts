@@ -31,6 +31,20 @@ gradleEnterprise {
 	}
 }
 
+val junitBuildCacheUsername: String? by extra
+val junitBuildCachePassword: String? by extra
+
+buildCache {
+	remote<HttpBuildCache> {
+		url = uri("$gradleEnterpriseServer/cache/")
+		isPush = junitBuildCacheUsername != null && junitBuildCachePassword != null
+		credentials {
+			username = junitBuildCacheUsername
+			password = junitBuildCachePassword
+		}
+	}
+}
+
 val javaVersion = JavaVersion.current()
 require(javaVersion.isJava11Compatible) {
 	"The JUnit 5 build requires Java 11 or higher. Currently executing with Java ${javaVersion.majorVersion}."
