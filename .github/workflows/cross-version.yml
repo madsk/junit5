@@ -24,6 +24,10 @@ jobs:
     container: "junitteam/build:${{ matrix.jdk }}"
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: ~/.gradle/caches/modules-2
+          key: ${{ runner.os }}-gradle-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
       - name: Test
         run: |
           ./gradlew --version
