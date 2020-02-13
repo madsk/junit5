@@ -21,7 +21,7 @@ plugins {
 }
 
 val gradleEnterpriseServer = "https://junit.grdev.net"
-val isCiServer = System.getenv("CI") != null || System.getenv("GITHUB_WORKFLOW") != null
+val isCiServer = System.getenv("CI") != null || System.getenv("GITHUB_ACTIONS") != null
 val junitBuildCacheUsername: String? by extra
 val junitBuildCachePassword: String? by extra
 
