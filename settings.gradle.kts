@@ -28,6 +28,7 @@ val junitBuildCachePassword: String? by extra
 gradleEnterprise {
 	buildScan {
 		server = gradleEnterpriseServer
+		isCaptureTaskInputFiles = true
 		publishAlways()
 		tag(if (isCiServer) "CI" else "LOCAL")
 		this as BuildScanExtensionWithHiddenFeatures
