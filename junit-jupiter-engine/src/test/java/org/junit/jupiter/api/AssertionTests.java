@@ -10,16 +10,16 @@
 
 package org.junit.jupiter.api;
 
-import static org.junit.jupiter.api.AssertionTestUtils.assertExpectedAndActualValues;
-import static org.junit.jupiter.api.AssertionTestUtils.assertMessageEndsWith;
-import static org.junit.jupiter.api.AssertionTestUtils.assertMessageEquals;
-import static org.junit.jupiter.api.AssertionTestUtils.assertMessageStartsWith;
-import static org.junit.jupiter.api.AssertionTestUtils.expectAssertionFailedError;
+//import static org.junit.jupiter.api.AssertionTestUtils.assertExpectedAndActualValues;
+//import static org.junit.jupiter.api.AssertionTestUtils.assertMessageEndsWith;
+//import static org.junit.jupiter.api.AssertionTestUtils.assertMessageEquals;
+//import static org.junit.jupiter.api.AssertionTestUtils.assertMessageStartsWith;
+//import static org.junit.jupiter.api.AssertionTestUtils.expectAssertionFailedError;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+//import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.function.Executable;
-import org.opentest4j.AssertionFailedError;
+//import org.junit.jupiter.api.function.Executable;
+//import org.opentest4j.AssertionFailedError;
 
 /**
  * Unit tests for JUnit Jupiter {@link Assertions}.
