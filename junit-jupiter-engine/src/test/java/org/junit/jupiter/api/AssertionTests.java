@@ -35,5 +35,5 @@ class AssertionTests {
 		assertEquals(expected, actual);
 		assertEquals(expected, actual, "message");
 		assertEquals(expected, actual, () -> "message");
-    }
+	}
 }
