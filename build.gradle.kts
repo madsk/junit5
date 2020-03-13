@@ -6,7 +6,15 @@ plugins {
 	id("com.github.ben-manes.versions") // gradle dependencyUpdates
 	id("com.diffplug.gradle.spotless")
 	id("io.spring.nohttp")
+	id("info.solidsoft.pitest") version "1.4.7" // new
+	id("com.github.spotbugs") version "4.0.2" // new
+	java
 }
+/*
+dependencies {
+	classpath("gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.0.2")
+}
+*/
 
 buildScan {
 	if (System.getenv("CI") != null || System.getenv("GITHUB_WORKFLOW") != null) {
@@ -83,6 +91,10 @@ allprojects {
 	apply(plugin = "eclipse")
 	apply(plugin = "idea")
 	apply(plugin = "com.diffplug.gradle.spotless")
+	//////////NEW
+	//apply(plugin = "com.github.spotbugs")
+
+	//////////
 
 	if (enableJaCoCo) {
 		apply(plugin = "jacoco")
@@ -103,6 +115,29 @@ allprojects {
 }
 
 subprojects {
+
+	apply(plugin = "com.github.spotbugs")
+
+	/*
+	dependencies {
+		group = property("com.google.code.findbugs"; name: "annotations"; version: "3.0.1")
+	}
+
+
+	spotbugsMain {
+		reports {
+			xml.enabled = false
+			html.enabled = true
+		}
+	}
+
+	spotbugsTest {
+		reports {
+			xml.enabled = false
+			html.enabled = true
+		}
+	}
+	*/
 
 	if (project in jupiterProjects) {
 		group = property("jupiterGroup")!!
@@ -176,6 +211,7 @@ rootProject.apply {
 			trimTrailingWhitespace()
 			endWithNewline()
 		}
+
 	}
 
 	nohttp {
@@ -194,6 +230,7 @@ rootProject.apply {
 						if (rejected) {
 							reject("Release candidate")
 						}
+
 					}
 				}
 			}
@@ -226,4 +263,16 @@ rootProject.apply {
 			}
 		}
 	}
+
+
+	/* spotbugsMain {
+		reports {
+			xml.enabled = false
+			html.enabled = true
+		}
+	}
+	*/
+
+
+
 }

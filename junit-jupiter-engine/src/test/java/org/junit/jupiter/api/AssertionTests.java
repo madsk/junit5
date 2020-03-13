@@ -16,7 +16,6 @@ package org.junit.jupiter.api;
 //import static org.junit.jupiter.api.AssertionTestUtils.assertMessageStartsWith;
 //import static org.junit.jupiter.api.AssertionTestUtils.expectAssertionFailedError;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertThrows;
 
 //import org.junit.jupiter.api.function.Executable;
 //import org.opentest4j.AssertionFailedError;
@@ -29,11 +28,39 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AssertionTests {
 
 	@Test
-	void assertEqualsByte1() {
-		byte expected = 1;
-		byte actual = 1;
+	void assertEqualsTestDouble() { //should pass
+		double expected = 10.5;
+		double actual = 10.5;
 		assertEquals(expected, actual);
 		assertEquals(expected, actual, "message");
 		assertEquals(expected, actual, () -> "message");
 	}
+
+	@Test
+	void assertEqualsTestDouble2() {
+		double expected = 2.2;
+		double actual = 2.2;
+		assertEquals(expected, actual);
+		assertEquals(expected, actual, "message");
+		assertEquals(expected, actual, () -> "message");
+	}
+
+	@Test
+	void assertEqualsTestInt() {
+		int expected = 18;
+		int actual = 18;
+		assertEquals(expected, actual);
+		assertEquals(expected, actual, "message");
+		assertEquals(expected, actual, () -> "message");
+	}
+
+	@Test
+	void assertEqualsTestFloat() {
+		int expected = -5;
+		int actual = -5;
+		assertEquals(expected, actual);
+		assertEquals(expected, actual, "message");
+		assertEquals(expected, actual, () -> "message");
+	}
+
 }

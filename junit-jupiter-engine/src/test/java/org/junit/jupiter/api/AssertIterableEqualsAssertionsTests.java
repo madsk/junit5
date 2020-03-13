@@ -460,4 +460,28 @@ class AssertIterableEqualsAssertionsTests {
 		assertThrows(StackOverflowError.class, () -> assertIterableEquals(expected, actual));
 	}
 
+	///////////new/////////////////
+	@Test
+	void assertIterableEqualsEmpty() { 
+		assertIterableEquals(listOf(), listOf());
+	}
+
+	@Test
+	void assertIterableLongList() {
+		List<Object> list1 = listOf("a", 'b', 1, 5D, 2L, "This", "Is", "A", "Longer", "List", "Just", 2, "Make", "Sure", "That", "It", "Can", "Handle", "A", "Long", "List");
+		List<Object> list2 = listOf("a", 'b', 1, 5D, 2L, "This", "Is", "A", "Longer", "List", "Just", 2, "Make", "Sure", "That", "It", "Can", "Handle", "A", "Long", "List");
+		assertIterableEquals(list1, list2);
+		assertIterableEquals(list1, list2, "message");
+		assertIterableEquals(list1, list2, () -> "message");
+	}
+
+	@Test
+	void assertIterableNegativeNumbers() {
+		List<Object> list1 = listOf("a", 'b', -1, -5D, -2L, "This", "Is", "A", "Shorter", "Longer", "List");
+		List<Object> list2 = listOf("a", 'b', -1, -5D, -2L, "This", "Is", "A", "Shorter", "Longer", "List");
+		assertIterableEquals(list1, list2);
+		assertIterableEquals(list1, list2, "message");
+		assertIterableEquals(list1, list2, () -> "message");
+	}
+
 }
